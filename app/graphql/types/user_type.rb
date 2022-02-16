@@ -9,9 +9,10 @@ module Types
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
     field :movies_count, Integer, null: true
+    field :movies, [Types::MovieType], null: true
 
     def movies_count
-      Object.movies.size
+      object.movies.size
     end
   end
 end
